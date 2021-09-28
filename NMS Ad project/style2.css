@@ -1,0 +1,48 @@
+
+body{
+    background-color:#fff;
+    
+}
+
+.container-upload{
+    padding: 4%;
+    height: 400px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+.col-md-3{
+    background: #93B5C6;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.upload-info{
+    margin-top:10%;
+} 
+
+
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.upload-form label{
+    font-weight:600;
+}
+
+#btn{
+    background:#125D98;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+    position: absolute;
+}
+.upload-form button:focus{
+    box-shadow:none;
+}
+
+.upload-info{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bolder;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+  <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Upload form</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style2.css">
+    <script src="/script.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>   
+    <script src="../scripts/jquery-1.11.1.min.js"></script>
+    <script src="../scripts/jquery-ui.min.js"></script>
+  </head>
+  <body>
+        <div class="container-upload">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="upload-info">
+                        <h2>Add Advertisement</h2>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="upload-form">
+                      <form action="/list" method="post" id="myForm">
+                       
+                        <div class="form-group m-5 pt-3 pb-1"  >
+                          <label for="exampleFormControlSelect1">CHOOSE FILE</label>
+                            <div class="custom-file" >
+                             
+                             <label class="custom-file-label" for="exampleFormControlSelect">CHOOSE FILE</label>
+                              <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                            </div>
+                        </div>
+            
+                          <div class="form-group m-5 pt-1 pb-1">
+                             <label for="exampleFormControlSelect1">SELECT TYPE</label>
+                             <select class="form-control" id="exampleFormControlSelect1">
+                               <option>SMALL SQUARE - 250x250</option>
+                               <option>SMALL RECTANGLE - 200x200</option>
+                               <option>SMALL RECTANGLE - 180x150</option>
+                               <option>MEDIUM RECTANGLE - 300x250</option>
+                               <option>LARGE RECTANGLE - 336x280</option>
+                               <option>BANNER - 468x60</option>
+                             </select>
+                          </div>
+                          
+                          <div class="form-group m-5 pt-1 pb-1">
+                            <label for="exampleFormControlSelect1" class="m-2 pt-1 pb-1">FROM</label>
+                            <div class="datepicker date input-group p-0 shadow-sm">
+                                      <input type="date" placeholder="FROM" class="form-control py-4 px-4" id="selectFromDate">
+                                      <div class="input-group-append"> <span class="input-group-text px-4"> <i class="fas fa-calendar "></i></span></div>
+                            </div>
+                                
+                          </div>
+            
+                          <div class="form-group m-5">
+                            <label for="exampleFormControlSelect1" class="mx-2 pt-1 pb-1">TO</label>
+                            <!-- Date input -->
+                                 <div class="datepicker date input-group p-0 shadow-sm">
+                                    <input type="date" placeholder="dd-mm-yyyy" value=""
+                                     min="1997-01-01" max="2030-12-31" class="form-control py-4 px-4" id="selectToDate" >
+                                     <div class="input-group-append"><span class="input-group-text px-4"><i class="fas fa-calendar "></i></span></div>
+                                 </div>
+                         </div>
+
+                         <div class="form-group m-4" style="text-align: center;">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                             <a href="#"  id="btn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Submit</a>
+                            </div>
+                          </div>
+                      </form>
+				            </div>
+                  </div>  
+				    </div>
+          </div>
+   <script type="text/javascript">
+       $(function () {
+        $('.').datepicker({ dateFormat: 'dd-mm-yy' });
+      });
+
+
+
+     var click = document.getElementById('btn');
+    click.addEventListener('click', addData);
+
+    var arr = new Array();
+
+    function addData(){
+    
+    getData();
+    
+    arr.push({
+        exampleFormControlSelect1:document.getElementById('exampleFormControlSelect1').value,
+        selectFromDate:document.getElementById('selectFromDate').value,
+        selectToDate:document.getElementById('selectToDate').value,
+        
+    });
+
+        localStorage.setItem("localData", JSON.stringify(arr));
+  }
+
+   function getData(){
+    var str = localStorage.getItem("localData");
+    if (str!= null)
+      arr = JSON.parse(str);
+   }
+  </script>
+  </body>
+</html>
